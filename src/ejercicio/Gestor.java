@@ -7,34 +7,58 @@ public class Gestor {
 
     List<Videojuego> videojuegos;
 
-    public Gestor(){
+    public Gestor() {
         videojuegos = new ArrayList<>();
     }
 
-    public void cargar(int opcion){
-        if(opcion < 1 || opcion > 3){
+    public void cargar(int opcion) {
+        if(opcion < 1 || opcion > 3) {
             System.err.println("No existe ese tipo de fichero. Intentelo de nuevo");
         }
     }
-    public void guardar(int opcion){
-        if(opcion < 1 || opcion > 3){
+
+    public void guardar(int opcion) {
+        if(opcion < 1 || opcion > 3) {
             System.err.println("No existe ese tipo de fichero. Intentelo de nuevo");
         }
 
     }
-    public void addVideojuego(){
-        Videojuego v = new Videojuego();
+
+    public void addVideojuego(Videojuego v) {
+        if(v == null) {
+            System.out.println("No se ha introducido el videojuego en la base de datos");
+            return;
+        }
+        if(getVideojuego(v.getNombre()) != null) {
+            System.out.println("El videojuego ya se encuentra en la base de datos");
+            return;
+        }
         videojuegos.add(v);
-        System.out.println("Falta implementar");
     }
-    public void elimVideojuego(){
-        Videojuego v = new Videojuego();
+
+    public void elimVideojuego(Videojuego v) {
+        if(v == null) {
+            System.out.println("El videojuego no se encuentra en la base de datos");
+        }
         videojuegos.remove(v);
-        System.out.println("Falta implementar");
     }
-    public void listarVideojuegos(){
-        for(Videojuego v: videojuegos){
+
+    public void listarVideojuegos() {
+        if(videojuegos.isEmpty()) {
+            System.out.println("No hay ningún videojuego en la base de datos");
+        }
+        for(Videojuego v : videojuegos) {
             System.out.println(v);
         }
     }
+
+    public Videojuego getVideojuego(String nombre) {
+        for(Videojuego v : videojuegos) {
+            if(v.getNombre().equals(nombre)) {
+                return v;
+            }
+        }
+        return null;
+    }
+    
 }
