@@ -1,4 +1,4 @@
-package ejercicio;
+package ejercicio_final;
 
 import java.io.Serializable;
 
@@ -70,7 +70,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que devuelve el nombre del videojuego.
+     * Metodo que devuelve el nombre del videojuego.
      *
      * @return nombre del videojuego.
      */
@@ -79,7 +79,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que actualiza el nombre del videojuego según el nombre que introduce el usuario.<br>
+     * Metodo que actualiza el nombre del videojuego según el nombre que introduce el usuario.<br>
      * Se comprueba que sea un nombre válido.
      *
      * @param nombre nombre del videojuego. No debe estar vacío o ser nulo.
@@ -94,7 +94,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que devuelve la nota que le ha puesto el usuario al videojuego.
+     * Metodo que devuelve la nota que le ha puesto el usuario al videojuego.
      *
      * @return nota del usuario para el videojuego.
      */
@@ -103,7 +103,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que actualiza la nota que le ha puesto el usuario al videojuego. <br>
+     * Metodo que actualiza la nota que le ha puesto el usuario al videojuego. <br>
      * Comprueba que la nota esté entre 0 y 10.
      *
      * @param nota nota del usuario para el videojuego.
@@ -118,7 +118,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que devuelve el año en el que se publicó el videojuego.
+     * Metodo que devuelve el año en el que se publicó el videojuego.
      *
      * @return año en el que se publicó el videojuego.
      */
@@ -127,7 +127,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que actualiza el año en el que se publicó el videojuego. <br>
+     * Metodo que actualiza el año en el que se publicó el videojuego. <br>
      * Comprueba que no sea inferior a 1972.
      *
      * @param anoPublicacion año en el que se publicó el videojuego.
@@ -142,7 +142,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que devuelve si el videojuego está disponible para consolas
+     * Metodo que devuelve si el videojuego está disponible para consolas
      *
      * @return <code>true</code> si está disponible para consolas, <code>false</code> si no.
      */
@@ -151,7 +151,7 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que actualiza si el videojuego está disponible para consola.
+     * Metodo que actualiza si el videojuego está disponible para consola.
      *
      * @param disponibleEnConsola si está disponible para consola o no.
      */
@@ -160,7 +160,29 @@ public class Videojuego implements Serializable {
     }
 
     /**
-     * Método que devuelve los datos del objeto en un String que le permite al usuario leerlo correctamente.
+     * Metodo que comprueba si un objeto es igual que otro.
+     * Para que dos videojuegos sean iguales deben de tener el mismo nombre sin importar las mayusculas o minusculas.
+     *
+     * @param v videojuego a comparar si es igual.
+     *
+     * @return true si son el mismo videojuego, false si no son el mismo videojuego.
+     */
+    public boolean equals(Videojuego v) {
+        return nombre.equalsIgnoreCase(v.nombre);
+    }
+
+    /**
+     * Metodo que crea un código hash que identifica al objeto.
+     *
+     * @return codigo hash del objeto
+     */
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
+    }
+
+    /**
+     * Metodo que devuelve los datos del objeto en un String que le permite al usuario leerlo correctamente.
      *
      * @return String con los datos del objeto.
      */
